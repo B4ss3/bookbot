@@ -1,3 +1,4 @@
+import os
 def count_words(text):
     words = text.split()
     return len(words)
@@ -18,3 +19,6 @@ def sort_dictionary(dct):
     sorting_dict = sorted(dct.items(), key=lambda kv: kv[1], reverse= True)
     return dict(sorting_dict)
 
+def get_available_books():
+    books = os.listdir("./books")
+    return books

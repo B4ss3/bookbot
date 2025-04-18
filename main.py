@@ -1,12 +1,13 @@
-from stats import count_words, count_characters, sort_dictionary
+from stats import count_words, count_characters, sort_dictionary, get_available_books
 import sys
 def main():
  
     if len(sys.argv) != 2:
-        print("Usage: python3 main.py <path_to_book>")
+        print("Usage: python3 main.py books/ <book name>")
+        print(get_available_books())
         sys.exit(1)
     book_path = sys.argv[1]
-    
+
     text = get_book_text(book_path)
     word_count = count_words(text)
     chars_dict = count_characters(text)
@@ -15,7 +16,7 @@ def main():
 
 
 
-def print_report(book_path,word_count,sorted_dict):
+def print_report(book_path, word_count, sorted_dict):
     print(f"============ BOOKBOT ============\nAnalyzing book found at {book_path}")
     print(f"----------- Word Count ----------\nFound {word_count} total words")
     print("--------- Character Count -------")
